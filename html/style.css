@@ -6,8 +6,11 @@
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
 }
+#body {
+  margin-left: 100px;
+}
 .sidebar{
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
   height: 100%;
@@ -16,7 +19,8 @@
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
-}
+  margin-left: 0;
+} 
 .sidebar.open{
   width: 250px;
 }
@@ -25,6 +29,7 @@
   display: flex;
   align-items: center;
   position: relative;
+  margin-left: 0;
 }
 .sidebar .logo-details .icon{
   opacity: 0;
@@ -40,8 +45,10 @@
 .sidebar.open .logo-details .icon,
 .sidebar.open .logo-details .logo_name{
   opacity: 1;
+  margin-left: 0;
 }
 .sidebar .logo-details #btn{
+    margin-left: 0;
   position: absolute;
   top: 50%;
   right: 0;
@@ -67,6 +74,7 @@
 .sidebar .nav-list{
   margin-top: 20px;
   height: 100%;
+  margin-left: 0;
 }
 .sidebar li{
   position: relative;
@@ -142,6 +150,7 @@
   text-decoration: none;
   transition: all 0.4s ease;
   background: #11101D;
+  margin: 0;
 }
 .sidebar li a:hover{
   background: #FFF;
@@ -158,6 +167,7 @@
 .sidebar.open li a .links_name{
   opacity: 1;
   pointer-events: auto;
+  margin-left: 0;
 }
 .sidebar li a:hover .links_name,
 .sidebar li a:hover i{
@@ -169,6 +179,7 @@
   line-height: 50px;
   font-size: 18px;
   border-radius: 12px;
+  margin: 0;
 }
 .sidebar li.profile{
   position: fixed;
