@@ -34,13 +34,14 @@
 			
 				Primer valor: <input id="val1" type="text" name="val1">
 				Segundo valor: <input id="val2" type="text" name="val2">
-				Resultado: <input id="result1" type="text" name="result1">
+				Resultado: <input id="result1" type="text" name="result1" readonly>
 				<br>
 				<br>
 				<input type="button" onclick="sum(val1,val2);" value="Suma">
 				<input type="button" onclick="res(val1,val2);" value="Resta">
 				<input type="button" onclick="mult(val1, val2);" value="Multiplicacion">
 				<input type="button" onclick="div(val1, val2);" value="Division">
+				<input type="reset" value="Borrar">
 			</form>
 
 
@@ -81,7 +82,7 @@
 <br>
 			<form>
 				Valor: <input id="valtr" type="text" name="valtr">
-				Resultado: <input id="res" type="text" name="res">
+				Resultado: <input id="res" type="text" name="res" readonly>
 				<br>
 				<br>
 				<input type="button" onclick="sin(valtr);" value="sin">
@@ -90,6 +91,7 @@
 				<input type="button" onclick="asin(valtr)" value="sin-1">
 				<input type="button" onclick="" value="cos-1">
 				<input type="button" onclick="" value="tan-1">
+				<input type="reset" value="Borrar">
 
 
 			</form>
@@ -109,20 +111,85 @@
 					var valtr = parseInt(document.getElementById("valtr").value);
 					document.getElementById("res").value = (Math.tan(valtr*Math.PI/180))
 				}
-
+/*
 				function asin(valtr){
 					var valtr = parseInt(document.getElementById("valtr").value);
 					//valtr = valtr*Math.PI/180 
-					/*Terminar de resolver como pasar el angulo a grados*/
+					/*Terminar de resolver como pasar el angulo a grados
 					
 					document.getElementById("res").value = (Math.asin(valtr*Math.PI/180))
 				}
+
+				function acos(valtr){
+					var valtr = parseInt(document.getElementById("valtr").value);
+					//valtr = valtr*Math.PI/180 
+					/*Terminar de resolver como pasar el angulo a grados
+					
+					document.getElementById("res").value = (Math.acos(valtr*Math.PI/180))
+				}
+
+				function atan(valtr){
+					var valtr = parseInt(document.getElementById("valtr").value);
+					//valtr = valtr*Math.PI/180 
+					/*Terminar de resolver como pasar el angulo a grados
+					
+					document.getElementById("res").value = (Math.ata(valtr*Math.PI/180))
+				}
+*/
 			</script>
 
 			<br>
 			<br>
+
+			<form>
+				Valor: <input id="valfact" type="text" name="valfact">
+				Resultado: <input id="res2" type="text" name="res2" readonly>
+				<br>
+				<br>
+				<input type="button" onclick="fact(valfact)" value="Factorizar"> 
+				<input type="reset" value="Borrar">
+				<br>
+				<br>
+			</form>			
 			
-			
+			<script>
+				function fact(valfact){
+					var valfact = parseInt(document.getElementById("valfact").value);
+					var fact = 1 
+					for(i = 1 ; i <= valfact ; i++){
+						fact = fact*i
+					}
+					document.getElementById("res2").value = fact
+				}
+			</script>
+
+			<form>
+				y = <input id="coefx" type="text" name="coefx" style="width: 12px;">x+
+				<input id="coefoo" type="text" name="coefoo" style="width: 12px;">
+				<input id="coefoo" type="text" name="coefoo" style="width: 600px; height: 50px;" value="" >
+				<br>
+				<br>
+				<input type="button" onclick="anal()" value="Analizar">
+				<input type="reset" value="Borrar">
+			</form>	
+			<script>
+				function anal(coefx, coefoo){
+					var coefx = parseInt(document.getElementById("coefx").value);
+					var coefoo = parseInt(document.getElementById("coefoo").value);
+					if(coefx > 0 ){
+						document.write("La funcion ingresada es creciente");
+					}else{
+						if(coefx == 0){
+						document.write("La funcion ingresada es una constante");
+						}else{
+						if(coefx < 0){
+							document.write("La funcion ingresada es decreciente");
+								}
+							}
+						}
+				}	
+			</script>
+
 			<footer> <!-- DEJARLO EN UN RECTANGULO MUY LINDO Y QUE SIEMPRE ESTE ABAJO -->
 			
 				<p>INTEGRANTES: Eitan Mohorade, Federico Delgado,Gabriel Longombardo, Juan Casilla y Sebastian Diaz<br>
