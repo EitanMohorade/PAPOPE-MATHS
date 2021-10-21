@@ -1,36 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
+    <link rel="stylesheet" href="style.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <title>Papope MATHS</title>
+   </head>
 
-	<head>
-	
-		<title>trabajo de algoritmos grupal</title>
-		
-	</head>
 	
 	
-		<body>
-			<nav> <a href="trabajopapope.html">Pagina Principal</a> </nav>
-			<h1 style="text-align:center">Papope MATHS</h1>
-			<h2 style="text-align:center">LEANDRO PISA</h2>
-			
-			<nav> <!-- CENTRALIZAR LOS NAVS Y HACER LINDOS LOS BOTONES. TAMBIEN PONERLOS EN UN RECLANGULO -->
-				<a href="pitagoras.html">pitagoras</a>
-				
-				<a href="leandropisa.html">leandro pisa</a> 
-				
-				<a href="euler.html">Euler</a> 
-				
-				<a href="calculadora.html">calculadora</a><!-- hacer este boton diferente pls-->	
-			</nav>
+		<body id="body"> 
+			<h1 class="PAPOPE">Papope MATHS</h1>
+			<h2 class="articulo">LEANDRO PISA</h2>
 			
 			<h3>Nacimiento y fallecimiento</h3>
 			
 				<p>Fibonacci Leonardo de Pisa nació en 1170 en Italia y murió en el año 1250.</p>
 				
-			<h3>Breve descripción</h3>
-			
-				<p>Pese a haber nacido en Italia, se educó en el norte de África. Aprendió matemáticas en Bugía y viajó mucho con su padre, reconociendo las ventajas de los sistemas matemáticos utilizados en los países que visitaban. En el año 1200 dejó de viajar y revivió sus antiguas habilidades matemáticas para escribir libros. Él vivió antes de la imprenta, por lo que sus copias fueron escasas y hoy en día hay algunos libros que no pudimos recuperar. Entre los que se mantiene una copia legible hoy en día están “Liber abaci”(1202), “Práctica geometriae”(1220), “Flos”(1225) y “Liber quadratorum”. Pese al poco interés en cuestiones intelectuales de la época, los libros de Fibonacci generaron un grán interés.</p>
-				
+			<div class="imgytexpisa">
+				<div>
+				<h3>Breve descripción</h3>
+					<p>Pese a haber nacido en Italia, se educó en el norte de África. Aprendió matemáticas en Bugía y viajó mucho con su padre, reconociendo las ventajas de los sistemas matemáticos utilizados en los países que visitaban. En el año 1200 dejó de viajar y revivió sus antiguas habilidades matemáticas para escribir libros. Él vivió antes de la imprenta, por lo que sus copias fueron escasas y hoy en día hay algunos libros que no pudimos recuperar. Entre los que se mantiene una copia legible hoy en día están “Liber abaci”(1202), “Práctica geometriae”(1220), “Flos”(1225) y “Liber quadratorum”. Pese al poco interés en cuestiones intelectuales de la época, los libros de Fibonacci generaron un grán interés.</p>
+				</div>
+				<img class="pisa1" src="img/FibonacciHTML1.jpg">
+			</div>
 			<h3>Aportes</h3>
 			
 				<p>Entre sus aportes está la identidad de Fibonacci y la famosa sucesión de Fibonacci, la cuál realmente no fue él quien la inventó, pero sí quien la popularizó en su zona. Esta secuencia era conocida por los matemáticos hindúes del siglo VI</p>
@@ -38,13 +34,81 @@
 			<h3>FUENTES</h3>
 				<a href="http://www.google.com/" target="_blank" >Google </a>
 			
+				<div class="sidebar">
+					<div class="logo-details">
+						<div class="logo_name">Papope MATHS</div>
+						<i class='bx bx-menu' id="btn" ></i>
+					</div>
+					<ul class="nav-list">
+						<li>
+							<a href="trabajopapope.html">
+								<i class='bx bx-grid-alt'></i>
+								<span class="links_name">Pagina principal</span>
+							</a>
+							<span class="tooltip">Pagina principal</span>
+						</li>
+						<li>
+							<a href="pitagoras.html">
+								<img class="imgnav" src="img/Pitogoras (1).png">
+								<span class="links_name">Pitagoras</span>
+							</a>
+							<span class="tooltip">Pitagoras</span>
+						</li>
+						<li>
+							<a href="euler.html">
+								<img class="imgnav" src="img/Euler (1).jpg">
+								<span class="links_name">Euler</span>
+							</a>
+							<span class="tooltip">Euler</span>
+						</li>
+						<li>
+							<a href="leandropisa.html">
+								<img class="imgnav" src="img/image.jpg">
+								<span class="links_name">Leando Pisa</span>
+							</a>
+							<span class="tooltip">Leando Pisa</span>
+						</li>
+						<li>
+							<a href="calculadora.html">
+								<img class="imgnav" src="img/calculatoreishon.jpg">
+								<span class="links_name">Calculadora</span>
+							</a>
+							<span class="tooltip">Calculadora</span>
+						</li>
+					</ul>
+				  </div>
+				  <script>
+				  let sidebar = document.querySelector(".sidebar");
+				  let closeBtn = document.querySelector("#btn");
+				  let searchBtn = document.querySelector(".bx-search");
+				
+				  closeBtn.addEventListener("click", ()=>{
+					sidebar.classList.toggle("open");
+					menuBtnChange();//calling the function(optional)
+				  });
+				
+				  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+					sidebar.classList.toggle("open");
+					menuBtnChange(); //calling the function(optional)
+				  });
+				
+				  // following are the code to change sidebar button(optional)
+				  function menuBtnChange() {
+				   if(sidebar.classList.contains("open")){
+					 closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+				   }else {
+					 closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+				   }
+				  }
+				  </script>
 			
 			
-			
-			<footer> <!-- DEJARLO EN UN RECTANGULO MUY LINDO Y QUE SIEMPRE ESTE ABAJO -->
-				<p>INTEGRANTES: Eitan Mohorade, Federico Delgado,Gabriel Longombardo, Juan Casilla y Sebastian Diaz<br>
-				<a href=""></a></p>
-			</footer>
+			<div class="footer">
+				<footer> <!-- DEJARLO EN UN RECTANGULO MUY LINDO Y QUE SIEMPRE ESTE ABAJO -->
+					<p>INTEGRANTES<br> Eitan Mohorade, Federico Delgado,Gabriel Longombardo, Juan Casilla y Sebastian Diaz<br>
+					<a href=""></a></p>
+				</footer>
+			</div>
 		</body>
 		
 		
