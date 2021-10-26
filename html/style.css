@@ -14,6 +14,7 @@
   text-align: center;
   padding: 40px 0 40px 0;
   background-color: darkgoldenrod;
+  font-size: 65px
 }
 
 .articulo{
@@ -26,13 +27,7 @@
   height: 50px;
 }
 
-.imgytexpisa {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.imgytexeuler {
+.imgytex {
   display: flex;
   align-items: center;
   justify-content: space-around;
