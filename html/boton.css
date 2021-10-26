@@ -1,7 +1,6 @@
 .button {
   background-color: #43AF50;
-  border: none;
-  color: #4CU211;
+  border: outset #37813f;
   padding: 7px 16px;
   text-align: center;
   text-decoration: none;
@@ -9,4 +8,8 @@
   font-size: 14px;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+.text {
+  border: inset black 2px;
 }

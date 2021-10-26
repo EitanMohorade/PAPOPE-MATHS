@@ -1,53 +1,106 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
-<html>
-
-	<head>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="calcu.css">
+	<link rel="stylesheet" href="boton.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <title>Papope MATHS</title>
+   </head>
 	
-		<title>trabajo de algoritmos grupal</title>
-		
-	</head>
 	
-	
-		<body>
-		
-			<nav> <a href="trabajopapope.html">Pagina Principal</a> </nav>
+		<body id="body">
+			<h1 class="PAPOPE">Papope MATHS</h1>
+			<h4 class="articulo">Calculadora</h4>
+			<div class="sidebar">
+				<div class="logo-details">
+					<div class="logo_name">Papope MATHS</div>
+					<i class='bx bx-menu' id="btn" ></i>
+				</div>
+				<ul class="nav-list">
+					<li>
+						<a href="trabajopapope.html">
+							<i class='bx bx-grid-alt'></i>
+							<span class="links_name">Pagina principal</span>
+						</a>
+						<span class="tooltip">Pagina principal</span>
+					</li>
+					<li>
+						<a href="pitagoras.html">
+							<img class="imgnav" src="img/Pitogoras (1).png">
+							<span class="links_name">Pitagoras</span>
+						</a>
+						<span class="tooltip">Pitagoras</span>
+					</li>
+					<li>
+						<a href="euler.html">
+							<img class="imgnav" src="img/Euler (1).jpg">
+							<span class="links_name">Euler</span>
+						</a>
+						<span class="tooltip">Euler</span>
+					</li>
+					<li>
+						<a href="leandropisa.html">
+							<img class="imgnav" src="img/image.jpg">
+							<span class="links_name">Leandro Pisa</span>
+						</a>
+						<span class="tooltip">Leandro Pisa</span>
+					</li>
+					<li>
+						<a href="calculadora.html">
+							<img class="imgnav" src="img/calculatoreishon.jpg">
+							<span class="links_name">Calculadora</span>
+						</a>
+						<span class="tooltip">Calculadora</span>
+					</li>
+				</ul>
+			  </div>
+			  <script>
+			  let sidebar = document.querySelector(".sidebar");
+			  let closeBtn = document.querySelector("#btn");
+			  let searchBtn = document.querySelector(".bx-search");
 			
-			<h1 style="text-align:center">Papope MATHS</h1>
-			<h2 style="text-align:center">CALCULADORA</h2>
+			  closeBtn.addEventListener("click", ()=>{
+				sidebar.classList.toggle("open");
+				menuBtnChange();//calling the function(optional)
+			  });
 			
-			<nav> <!-- CENTRALIZAR LOS NAVS Y HACER LINDOS LOS BOTONES. TAMBIEN PONERLOS EN UN RECLANGULO -->
+			  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+				sidebar.classList.toggle("open");
+				menuBtnChange(); //calling the function(optional)
+			  });
 			
-				<a href="pitagoras.html">pitagoras</a>
-				
-				<a href="leandropisa.html">leandro pisa</a> 
-				
-				<a href="euler.html">Euler</a>
-
-				<a href="calculadora.html">calculadora</a>	<!-- hacer este boton diferente pls-->	
-				
-			</nav>
+			  // following are the code to change sidebar button(optional)
+			  function menuBtnChange() {
+			   if(sidebar.classList.contains("open")){
+				 closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+			   }else {
+				 closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+			   }
+			  }
+			  </script>
 			
 <br> <!-- Estos <br> se pueden eliminar, son para ver como queda la pagina-->
 <br>
 
 			<form>
 			
-				Primer valor numerador: <input id="val1" type="text" name="val1">
+				Primer valor numerador: <input class="text" id="val1" type="text" name="val1">
 				<br>
-				Primer valor denominador: <input id="val1d" type="text" name="val1d" value="1">
+				Primer valor denominador: <input class="text" id="val1d" type="text" name="val1d" value="1">
 				<br>
-				Segundo valor numerador: <input id="val2" type="text" name="val2">
+				Segundo valor numerador: <input class="text" id="val2" type="text" name="val2">
 				<br>
-				Segundo valor denominador: <input id="val2d" type="text" name="val2d" value="1">
-				Resultado: <input id="result1" type="text" name="result1" readonly>
+				Segundo valor denominador: <input class="text" id="val2d" type="text" name="val2d" value="1">
+				Resultado: <input class="text" id="result1" type="text" name="result1" readonly>
 				<br>
 				<br>
-				<input type="button" onclick="sum(val1,val2);" value="Suma">
-				<input type="button" onclick="res(val1,val2);" value="Resta">
-				<input type="button" onclick="mult(val1, val2);" value="Multiplicacion">
-				<input type="button" onclick="div(val1, val2);" value="Division">
-				<input type="reset" value="Borrar">
+				<input class="button" type="button" onclick="sum(val1,val2);" value="Suma">
+				<input class="button" type="button" onclick="res(val1,val2);" value="Resta">
+				<input class="button" type="button" onclick="mult(val1, val2);" value="Multiplicacion">
+				<input class="button" type="button" onclick="div(val1, val2);" value="Division">
+				<input class="button" type="reset" value="Borrar">
 			</form>
 
 
@@ -101,17 +154,17 @@
 <br>
 <br>
 			<form>
-				Valor: <input id="valtr" type="text" name="valtr">
-				Resultado: <input id="res" type="text" name="res" readonly>
+				Valor: <input class="text" id="valtr" type="text" name="valtr">
+				Resultado: <input class="text" id="res" type="text" name="res" readonly>
 				<br>
 				<br>
-				<input type="button" onclick="sin(valtr);" value="sin">
-				<input type="button" onclick="cos(valtr);" value="cos">
-				<input type="button" onclick="tan(valtr);" value="tan">
-				<input type="button" onclick="asin(valtr)" value="sin-1">
-				<input type="button" onclick="acos(valtr)" value="cos-1">
-				<input type="button" onclick="atan(valtr)" value="tan-1">
-				<input type="reset" value="Borrar">
+				<input class="button" type="button" onclick="sin(valtr);" value="sin">
+				<input class="button" type="button" onclick="cos(valtr);" value="cos">
+				<input class="button" type="button" onclick="tan(valtr);" value="tan">
+				<input class="button" type="button" onclick="asin(valtr)" value="sin-1">
+				<input class="button" type="button" onclick="acos(valtr)" value="cos-1">
+				<input class="button" type="button" onclick="atan(valtr)" value="tan-1">
+				<input class="button" type="reset" value="Borrar">
 
 
 			</form>
@@ -177,12 +230,12 @@
 			<br>
 
 			<form>
-				Valor: <input id="valfact" type="text" name="valfact">
-				Resultado: <input id="res2" type="text" name="res2" readonly>
+				Valor: <input class="text" id="valfact" type="text" name="valfact">
+				Resultado: <input class="text" id="res2" type="text" name="res2" readonly>
 				<br>
 				<br>
-				<input type="button" onclick="fact(valfact)" value="Factorizar"> 
-				<input type="reset" value="Borrar">
+				<input class="button" type="button" onclick="fact(valfact)" value="Factorizar"> 
+				<input class="button" type="reset" value="Borrar">
 				<br>
 				<br>
 			</form>			
@@ -199,24 +252,24 @@
 			</script>
 
 			<form>
-				y = <input id="coefx" type="text" name="coefx" style="width: 30px;">x+
-				<input id="coefoo" type="text" name="coefoo" style="width: 30px;">
+				y = <input class="text" id="coefx" type="text" name="coefx" style="width: 30px;">x+
+				<input class="text" id="coefoo" type="text" name="coefoo" style="width: 30px;">
 				<br>
 				<br>
-				<input id="resan1" type="text" name="resan1" style="width: 450px; height: 20px;" readonly value="Aqui indica la pendiente" >
+				<input class="text" id="resan1" type="text" name="resan1" style="width: 450px; height: 20px;" readonly value="Aqui indica la pendiente" >
 				<br>
 				<br>
-				<input id="resan2" type="text" name="resan2" style="width: 450px; height: 20px;" readonly value="Aqui indica la OO y la raiz" >
+				<input class="text" id="resan2" type="text" name="resan2" style="width: 450px; height: 20px;" readonly value="Aqui indica la OO y la raiz" >
 				<br>
 				<br>
-				<input id="resan3" type="text" name="resan3" style="width: 450px; height: 20px;" readonly value="Aqui indica el intervalo negativo" >
+				<input class="text" id="resan3" type="text" name="resan3" style="width: 450px; height: 20px;" readonly value="Aqui indica el intervalo negativo" >
 				<br>
 				<br>
-				<input id="resan4" type="text" name="resan4" style="width: 450px; height: 20px;" readonly value="Aqui indica el intervalo positivo" >
+				<input class="text" id="resan4" type="text" name="resan4" style="width: 450px; height: 20px;" readonly value="Aqui indica el intervalo positivo" >
 				<br>
 				<br>
-				<input type="button" onclick="anal(coefoo,coefx)" value="Analizar">
-				<input type="reset" value="Borrar">
+				<input class="text" class="button" type="button" onclick="anal(coefoo,coefx)" value="Analizar">
+				<input class="button" type="reset" value="Borrar">
 			</form>	
 			<script>
 				function anal(coefx, coefoo){
@@ -255,11 +308,11 @@
 					
 			</script>
 
-			<footer> <!-- DEJARLO EN UN RECTANGULO MUY LINDO Y QUE SIEMPRE ESTE ABAJO -->
-			
-				<p>INTEGRANTES: Eitan Mohorade, Federico Delgado,Gabriel Longombardo, Juan Casilla y Sebastian Diaz<br>
-				<a href=""></a></p>
-				
-			</footer>
+<div class="footer">
+	<footer> <!-- DEJARLO EN UN RECTANGULO MUY LINDO Y QUE SIEMPRE ESTE ABAJO -->
+		<p>INTEGRANTES<br> Eitan Mohorade, Federico Delgado,Gabriel Longombardo, Juan Casilla y Sebastian Diaz<br>
+		<a href=""></a></p>
+	</footer>
+</div>
 		</body>
 </html>
