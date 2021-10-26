@@ -34,7 +34,10 @@
 			<form>
 			
 				Primer valor: <input id="val1" type="text" name="val1">
+				Primer valor denominador: <input id="val1d" type="text" name="val1d" value="1">
+				
 				Segundo valor: <input id="val2" type="text" name="val2">
+				Segundo valor denominador: <input id="val2d" type="text" name="val2d" value="1">
 				Resultado: <input id="result1" type="text" name="result1" readonly>
 				<br>
 				<br>
@@ -48,22 +51,33 @@
 
 			<script>
 				function sum(val1, val2){
+					var val1d = parseInt(document.getElementById("val1d").value);
+					var val2d = parseInt(document.getElementById("val2d").value);
 					var val1 = parseInt(document.getElementById("val1").value);
 					var val2 = parseInt(document.getElementById("val2").value);
+					val1 = val1/val1d;
+					val2 = val2/val2d;
 					document.getElementById("result1").value = val1 + val2;
 				}
 
 				function res(val1, val2){
-					var val1 = parseInt(document.getElementById("val1").value)
-					var val2 = parseInt(document.getElementById("val2").value)
-				
+						var val1 = parseInt(document.getElementById("val1").value)
+						var val2 = parseInt(document.getElementById("val2").value)
+						var val1d = parseInt(document.getElementById("val1d").value);
+						var val2d = parseInt(document.getElementById("val2d").value);
+						val1 = val1/val1d;
+						val2 = val2/val2d;
+						
 					document.getElementById("result1").value = val1 - val2;
 				}
 
 				function mult(val1, val2){
 					var val1 = parseInt(document.getElementById("val1").value)
 					var val2 = parseInt(document.getElementById("val2").value)
-				
+					var val1d = parseInt(document.getElementById("val1d").value);
+					var val2d = parseInt(document.getElementById("val2d").value);
+					val1 = val1/val1d;
+					val2 = val2/val2d;
 					document.getElementById("result1").value = val1 * val2;
 
 				
@@ -72,7 +86,10 @@
 				function div(val1, val2){
 					var val1 = parseInt(document.getElementById("val1").value)
 					var val2 = parseInt(document.getElementById("val2").value)
-				
+					var val1d = parseInt(document.getElementById("val1d").value);
+					var val2d = parseInt(document.getElementById("val2d").value);
+					val1 = val1/val1d;
+					val2 = val2/val2d;
 					document.getElementById("result1").value = val1 / val2;
 
 				
@@ -90,8 +107,8 @@
 				<input type="button" onclick="cos(valtr);" value="cos">
 				<input type="button" onclick="tan(valtr);" value="tan">
 				<input type="button" onclick="asin(valtr)" value="sin-1">
-				<input type="button" onclick="" value="cos-1">
-				<input type="button" onclick="" value="tan-1">
+				<input type="button" onclick="acos(valtr)" value="cos-1">
+				<input type="button" onclick="atan(valtr)" value="tan-1">
 				<input type="reset" value="Borrar">
 
 
@@ -99,20 +116,35 @@
 
 			<script>
 				function sin(valtr){
-					var valtr = parseInt(document.getElementById("valtr").value);
+					var valtr = parseFloat(document.getElementById("valtr").value);
 					document.getElementById("res").value = (Math.sin(valtr*Math.PI/180))
 				}
 
 				function cos(valtr){
-					var valtr = parseInt(document.getElementById("valtr").value);
+					var valtr = parseFloat(document.getElementById("valtr").value);
 					document.getElementById("res").value = (Math.cos(valtr*Math.PI/180))
 				}
 
 				function tan(valtr){
-					var valtr = parseInt(document.getElementById("valtr").value);
+					var valtr = parseFloat(document.getElementById("valtr").value);
 					document.getElementById("res").value = (Math.tan(valtr*Math.PI/180))
 				}
-/*
+
+				function asin(valtr){
+					var valtr = parseFloat(document.getElementById("valtr").value);
+					document.getElementById("res").value = Math.asin(valtr);
+				}
+
+				function acos(valtr){
+					var valtr = parseFloat(document.getElementById("valtr").value);
+					document.getElementById("res").value = Math.acos(valtr);
+				}
+
+				function atan(valtr){
+					var valtr = parseFloat(document.getElementById("valtr").value);
+					document.getElementById("res").value = Math.atan(valtr);
+				}
+				/*
 				function asin(valtr){
 					var valtr = parseInt(document.getElementById("valtr").value);
 					//valtr = valtr*Math.PI/180 
@@ -165,30 +197,60 @@
 			</script>
 
 			<form>
-				y = <input id="coefx" type="text" name="coefx" style="width: 12px;">x+
-				<input id="coefoo" type="text" name="coefoo" style="width: 12px;">
-				<input id="coefoo" type="text" name="coefoo" style="width: 600px; height: 50px;" value="" >
+				y = <input id="coefx" type="text" name="coefx" style="width: 30px;">x+
+				<input id="coefoo" type="text" name="coefoo" style="width: 30px;">
 				<br>
 				<br>
-				<input type="button" onclick="anal()" value="Analizar">
+				<input id="resan1" type="text" name="resan1" style="width: 450px; height: 20px;" readonly value="Aqui indica la pendiente" >
+				<br>
+				<br>
+				<input id="resan2" type="text" name="resan2" style="width: 450px; height: 20px;" readonly value="Aqui indica la OO y la raiz" >
+				<br>
+				<br>
+				<input id="resan3" type="text" name="resan3" style="width: 450px; height: 20px;" readonly value="Aqui indica el intervalo negativo" >
+				<br>
+				<br>
+				<input id="resan4" type="text" name="resan4" style="width: 450px; height: 20px;" readonly value="Aqui indica el intervalo positivo" >
+				<br>
+				<br>
+				<input type="button" onclick="anal(coefoo,coefx)" value="Analizar">
 				<input type="reset" value="Borrar">
 			</form>	
 			<script>
 				function anal(coefx, coefoo){
-					var coefx = parseInt(document.getElementById("coefx").value);
-					var coefoo = parseInt(document.getElementById("coefoo").value);
+					var coefx = parseFloat(document.getElementById("coefx").value);
+					var coefoo = parseFloat(document.getElementById("coefoo").value);
+					var raiz = -1*(coefoo)/coefx
 					if(coefx > 0 ){
-						document.write("La funcion ingresada es creciente");
+						document.getElementById("resan1").value = "La funcion ingresada es creciente";
 					}else{
 						if(coefx == 0){
-						document.write("La funcion ingresada es una constante");
+							document.getElementById("resan1").value = "La funcion ingresada es una constante";
 						}else{
 						if(coefx < 0){
-							document.write("La funcion ingresada es decreciente");
+							document.getElementById("resan1").value = "La funcion ingresada es decreciente";
 								}
 							}
 						}
-				}	
+					
+				if(coefoo >= 0 || coefoo <= 0){
+
+					document.getElementById("resan2").value = "La Ordenada al origen es " + coefoo +" y la raiz es "+ raiz;    
+
+				}
+				if(coefx > 0){
+					document.getElementById("resan3").value = "El intervalo negativo es de ("+Number.NEGATIVE_INFINITY+";"+raiz+")"
+					document.getElementById("resan4").value = "El intervalo positivo es de ("+raiz+";"+Number.POSITIVE_INFINITY+")"
+				}
+				if(coefx < 0){
+					document.getElementById("resan3").value = "El intervalo negativo es de ("+raiz+";"+Number.POSITIVE_INFINITY+")"
+					document.getElementById("resan4").value = "El intervalo positivo es de ("+Number.NEGATIVE_INFINITY+";"+raiz+")"
+				}
+			}
+
+
+
+					
 			</script>
 
 			<footer> <!-- DEJARLO EN UN RECTANGULO MUY LINDO Y QUE SIEMPRE ESTE ABAJO -->
